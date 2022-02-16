@@ -1,0 +1,117 @@
+
+@font-face {
+  font-family: 'SFProAR_regular';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/SFProAR_regular.ttf') format('woff2');
+  unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
+}
+
+
+body{
+font-family: 'SFProAR_regular', sans-serif;
+}
+
+#bt{
+    color: white;
+    
+  }
+  .navbar {
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 4px 6px -6px #999;
+
+}
+.footer {
+  padding:10px ;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+/*color picker*/
+[type="radio"] {
+  display: none;
+  }
+
+  .label-color {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #000, 0 0 0 3px #ddd;
+  cursor: pointer;
+  margin: 4px;
+  }
+
+  [type="radio"]:checked + label {
+  box-shadow: 0 0 0 2px #f9f9f9, 0 0 0 3px var(--colorMain);
+      background: attr(data-color);
+  }
+
+  #f3666c + label {
+  background: #f3666c;
+  }
+
+  #ff8367 + label {
+  background: #ff8367;
+  }
+
+  #f8a650 + label {
+  background: #f8a650;
+  }
+
+  #edc501 + label {
+  background: #edc501;
+  }
+
+  #green + label {
+  background: #46c961;
+  }
+
+  #greens + label {
+  background: #02cfb0;
+  }
+
+  #blue + label {
+  background: #01cade;
+  }
+
+  #blus + label {
+  background: #00b3f6;
+  }
+
+  #blues + label {
+  background: #496ac9;
+  }
+
+  #pinkr + label {
+  background: #8452c3;
+  }
+
+  #pinks + label {
+  background: #b97ae3;
+  }
+
+  #pinkz + label {
+  background: #f58ed5;
+  }
+
+  #gry + label {
+  background: #86909c;
+  }
+
+  #grys + label {
+  background: #939e96;
+  }
+
+  #gryz + label {
+  background: #9d928c;
+  }
+
+
+
