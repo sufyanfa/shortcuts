@@ -10,7 +10,7 @@
                 <a href="{{ $username->url }}">{{ $username->url }}</a>
                 @auth
                     @if(Auth::user()->id == $username->id)
-                        <p class="pt-1"><a href=""><i class="fas fa-edit"></i> {{__('Edit profile')}}</a></p>
+                        <p class="pt-1"><a href="/user/{{$username->username}}/edit"><i class="fas fa-edit"></i> {{__('Edit profile')}}</a></p>
                     @endif
                 @endauth
             </div>

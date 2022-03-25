@@ -18,13 +18,15 @@
                                     </a>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="#one"><i class="fas fa-share-square"></i> {{__('Share')}}</a>
-                                        @auth
-                                            @if (Auth::user()->id == $short->user->id)
-                                                <div role="separator" class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="#three"><i class="far fa-edit"></i> {{__('Edit')}}</a>
-                                            @endif
-                                        @endauth
-                                      </div>
+                                        
+                                        @can('update', $short)
+                                            <form class="dropdown-item" action="/shortcuts/{{ $short->id }}/edit" method="get" style="margin-top: 10px; float: right;">
+                                                @csrf
+                                                <button class="dropdown-item" type="submit" class="btn btn-outline-dark" style="width: 100px;"> {{__('Edit')}} <i class="far fa-edit"></i></button>
+                                            </form>
+                                        @endcan
+                                        
+                                    </div>
                                 </h3>
                             </div>
                         </div>

@@ -13,7 +13,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Shortcuts') }}</title>
+    <title>{{__('Shortcuts')}}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -72,7 +72,7 @@
             <div class="container">
                 <img src="{{ asset('/logo.png') }}" width="40" height="40" alt="" loading="lazy">
                 <a class="navbar-brand" href="{{ url('/') }}" style="margin-right: 3px">
-                    {{ config('app.name', 'Laravel') }}
+                    {{__('Shortcuts')}}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -154,12 +154,13 @@
         <br><br>
     </div>
     <!--Footer-->
-    <footer class="bg-light text-center text-white" style="  position: fixed; left: 0; bottom: 0; width: 100%; background-color: red; color: white; text-align: center;">
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    <footer class="bg-light text-center" style="  position: fixed; left: 0; bottom: 0; width: 100%; color: #86caf8; text-align: center;">
+        <div class="text-center p-3" style="background-color: rgb(255, 255, 255, 0.1); border-top: rgb(0, 0, 0, .4);backdrop-filter: blur(10px);">
           © برمجة وتطوير :
-          <a class="text-white" href="https://twitter.com/a7sa45">عبدالهادي ال بوسنينة</a>
+          <a class="" style="color: #86caf8;" href="https://twitter.com/a7sa45">عبدالهادي ال بوسنينة</a>
         </div>
     </footer>
+    
     <!--End Footer-->
 </body>
 </html>

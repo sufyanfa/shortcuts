@@ -26,6 +26,7 @@ Route::resource('/comments', CommentController::class);
 
 Route::get('/user/{username}', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 Route::get('/user/{username}/edit', [App\Http\Controllers\HomeController::class, 'edit'])->name('edit_profile');
+Route::post('/user/edit', [App\Http\Controllers\HomeController::class, 'update'])->name('update_profile');
 
 Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 

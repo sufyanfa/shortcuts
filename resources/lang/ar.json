@@ -45,6 +45,7 @@
     "Comment .." : "تعليق ..",
     "Log in" : "تسجيل الدخول",
     "OR" : "او",
-    "To write a comment you need " : "لكتابة تعليق تحتاج الى "
-
+    "To write a comment you need " : "لكتابة تعليق تحتاج الى ",
+    "Delete" : "حذف",
+    "The name field is required" : "حقل الاسم مطلوب"
 }

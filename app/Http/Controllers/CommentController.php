@@ -74,7 +74,7 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        //
+        return view('comments.edit', ['comment' => $comment]);
     }
 
     /**
@@ -86,7 +86,20 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        if($comment == null)
+        {
+            abort(404);
+        }
+        //$this->authorize('update', $shortcut);
+        $data = request()->validate([
+            'comment'  => ['required', 'string'],
+        ]);
+
+        $comment->update([
+            'comment' => $data['comment'],
+        ]);
+
+        return redirect('/shortcuts');
     }
 
     /**
@@ -97,6 +110,12 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        if($comment == null)
+        {
+            abort(404);
+        }
+        //$this->authorize('update', $comment);
+        $comment->delete();
+        return redirect('/shortcuts');
     }
 }

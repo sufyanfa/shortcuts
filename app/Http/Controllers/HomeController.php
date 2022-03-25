@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\Shortcut;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -45,7 +47,30 @@ class HomeController extends Controller
         {
             abort(404);
         }
-        return view('edit', ['user' => $user]);
+        $user = Auth::user();
+        return view('editProfile', compact('user'));
+    }
+
+    public function update(Request $request)
+    {
+        $data = request()->validate([
+            'name'       => ['required', 'string'],
+            'username'   => ['required', 'string'],
+            'photo_url'  => ['required', 'url'],
+            'bio'        => ['required', 'string'],
+            'url'        => ['required', 'url'],
+        ]);
+        
+        $user =Auth::user();
+        $user->update([
+            'name' => $data['name'],
+            'username' => $data['username'],
+            'photo_url' => $data['photo_url'],
+            'bio' => $data['bio'],
+            'url' => $data['url'],
+        ]);
+        //$user->save();
+        return redirect('/home');
     }
 
     public function search(Request $request)

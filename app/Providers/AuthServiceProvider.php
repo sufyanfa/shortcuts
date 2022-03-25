@@ -2,7 +2,14 @@
 
 namespace App\Providers;
 
+
+
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
+use App\Models\Shortcut;
+use App\Models\Comment;
+use App\Models\User;
+
 use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
@@ -25,6 +32,14 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('update', function (User $user, Shortcut $shortcut) {
+            return $user->id === $shortcut->user_id;
+        });
+
+        Gate::define('delete', function (User $user, Shortcut $shortcut) {
+            return $user->id === $shortcut->user_id;
+        });
+
+        
     }
 }

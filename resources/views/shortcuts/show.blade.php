@@ -14,28 +14,28 @@
               </footer>
             </blockquote>
             <button style="font-size: 24px" onclick="window.location.href='{{ $shortcut->url }}';" type="button" class="btn btn-outline-light"><i class="fas fa-cloud-download-alt"></i> تحميل </button>
-            @if(Auth::check())
-            {{--@can('update', $shortcut)--}}
-            @if (Auth::user()->id == $shortcut->user->id)
+            {{--@if(Auth::check())--}}
+            @can('update', $shortcut)
+            {{--@if (Auth::user()->id == $shortcut->user->id)--}}
             
             <div style="display: inline">
               <form action="/shortcuts/{{ $shortcut->id }}" method="post" style="margin-top: 10px; float: left;">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-outline-danger" style="width: 100px;"> حذف <i class="fas fa-trash"></i></button>
+                <button type="submit" class="btn btn-outline-danger" style="width: 100px;"> {{__('Delete')}} <i class="fas fa-trash"></i></button>
               </form>
-            {{--@endcan--}}
-            {{--@can('delete', $shortcut)--}}
+            @endcan
+            @can('delete', $shortcut)
             
               <form action="/shortcuts/{{ $shortcut->id }}/edit" method="get" style="margin-top: 10px; float: right;">
                 @csrf
-                <button type="submit" class="btn btn-outline-dark" style="width: 100px;"> تعديل <i class="far fa-edit"></i></button>
+                <button type="submit" class="btn btn-outline-dark" style="width: 100px;"> {{__('Edit')}} <i class="far fa-edit"></i></button>
               </form>
             </div>
           
-            {{--@endcan--}}
-            @endif
-            @endif
+            @endcan
+            {{--@endif--}}
+            {{--@endif--}}
           </div>
         </div>
       </div>
@@ -47,9 +47,8 @@
         <div class="media" style="margin: 20px;"> <img style="border-radius: 50%" src="{{ $shortcut->user->photo_url }}" class="mr-3" height="50">
           <div class="media-body" style="margin-right: 10px; weidth:10px">
               <h6 class="mt-1 mb-0">{{ $shortcut->user->name }}</h6> <span class="text-muted">{{ $shortcut->user->username }}@</span>
-              
           </div>
-          <h1><i class="fas fa-id-badge"></i></h1>
+          <h1><a href="/user/{{ $shortcut->user->username }}" style="color: #212529"><i class="fas fa-id-badge"></a></i></h1>
         </div>
       </div>
 <br>
@@ -59,9 +58,24 @@
       @foreach ($shortcut->comments as $comment)
             <div class="media" style="margin: 20px;"> <img style="border-radius: 50%" src="{{ $comment->user->photo_url }}" class="mr-3" height="50">
               <div class="media-body" style="margin-right: 10px">
+              <div class="float-right">
+                                <h3 class="card-title ">
+                                    <a class="" style="color: #212529" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        {{--@can('update', $short)--}}
+                                            <form class="dropdown-item" action="/comments/{{ $comment->id }}/edit" method="get" style="">
+                                                @csrf
+                                                <button class="dropdown-item" type="submit" class="btn btn-outline-dark" style="width: 100px; font-siz:100px"> {{__('Edit')}} <i class="far fa-edit"></i></button>
+                                            </form>
+                                       {{-- @endcan--}}
+                                        
+                                    </div>
+                                </h3>
+                    </div>
                   <h6 class="mt-1 mb-0">{{ $comment->user->name }}</h6> <span class="text-muted">{{ $comment->user->username }}@</span>
                   <p>{{ $comment->comment }}</p>
-                  
               </div>
             </div>
             @endforeach
