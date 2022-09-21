@@ -1,11 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-@if(config('app.locale') == 'ar')
-    dir="rtl"
-@else
-    dir="ltr"
-@endif
-    >
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="rtl">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -87,19 +81,7 @@
                         <li class="nav-item">
                             <a class="nav-link {{ Request::is('search') ? 'active' : '' }}" href="{{ url('/search') }}"><i class="fas fa-search"></i> {{__('Search')}}</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-language"></i>
-                                {{ Config::get('languages')[App::getLocale()] }}
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            @foreach (Config::get('languages') as $lang => $language)
-                                @if ($lang != App::getLocale())
-                                        <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a>
-                                @endif
-                            @endforeach
-                            </div>
-                        </li>
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('/shortcuts', ShortcutController::class);
+Route::resource('/shortcuts', ShortcutController::class)->name('shortcuts');
 Route::resource('/comments', CommentController::class);
 
 Route::get('/user/{username}', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
@@ -31,5 +31,3 @@ Route::post('/user/edit', [App\Http\Controllers\HomeController::class, 'update']
 Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);

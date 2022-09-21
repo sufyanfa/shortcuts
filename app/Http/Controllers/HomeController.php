@@ -69,8 +69,9 @@ class HomeController extends Controller
             'bio' => $data['bio'],
             'url' => $data['url'],
         ]);
+        $username = Auth::user()->username;
         //$user->save();
-        return redirect('/home');
+        return redirect('/user/{username}');
     }
 
     public function search(Request $request)

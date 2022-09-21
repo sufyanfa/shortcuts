@@ -58,7 +58,7 @@ class ShortcutController extends Controller
             'color' => $data['color'],
         ]);
 
-        return redirect()->route('home');
+        return redirect('/shortcuts');
     }
 
     /**
