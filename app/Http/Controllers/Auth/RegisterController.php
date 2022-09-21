@@ -65,10 +65,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $username = $data['username'];
+        $twitterURL = 'https://twitter.com/';
+        $userURL = $twitterURL .= $username;
         return User::create([
             'name' => $data['name'],
             'photo_url' => 'https://directory.weill.cornell.edu/api/v1/person/profile/jjfins.png?returnGenericOn404=true',
-            'url' => 'https://a7sa45.me',
+            'url' => $userURL,
             'bio' => 'bio',
             'username' => $data['username'],
             'email' => $data['email'],

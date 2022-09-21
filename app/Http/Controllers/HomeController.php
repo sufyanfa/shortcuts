@@ -71,7 +71,7 @@ class HomeController extends Controller
         ]);
         $username = Auth::user()->username;
         //$user->save();
-        return redirect('/user/{username}');
+        return redirect('/user/'.$username);
     }
 
     public function search(Request $request)

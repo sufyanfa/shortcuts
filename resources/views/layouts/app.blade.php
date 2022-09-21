@@ -68,78 +68,55 @@
                 <a class="navbar-brand" href="{{ url('/') }}" style="margin-right: 3px">
                     {{__('Shortcuts')}}
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::is('shortcuts') ? 'active' : '' }}" href="{{ url('/shortcuts') }}"><i class="fas fa-layer-group"></i> {{__('Shortcuts')}}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::is('search') ? 'active' : '' }}" href="{{ url('/search') }}"><i class="fas fa-search"></i> {{__('Search')}}</a>
-                        </li>
-                        
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::is('login') ? 'active' : '' }}" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> {{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link {{ Request::is('register') ? 'active' : '' }}" href="{{ route('register') }}"><i class="fas fa-user-plus"></i> {{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img style="border-radius: 50%" src="{{ Auth::user()->photo_url }}" width="30" height="30" alt="user_logo">
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ url('/shortcuts/create') }}">
-                                        <i class="fas fa-plus-square"></i> 
-                                        {{ __('Add') }}
-                                    </a>
-                                    <a class="dropdown-item" href="/user/{{ Auth::user()->username }}">
-                                        <i class="fas fa-id-badge"></i>
-                                        {{ __('Profile') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                                     <i class="fas fa-sign-out-alt"></i>
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+                @guest
+                <div class="navbar-nav ml-auto d-flex">
+                    <a style="display:inline-flex" class="nav-link {{ Request::is('login') ? 'active' : '' }}" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> {{ __('Login') }}</a> 
+                    @if (Route::has('register'))
+                        <a style="display:inline-flex" class="nav-link {{ Request::is('register') ? 'active' : '' }}" href="{{ route('register') }}"><i class="fas fa-user-plus"></i> {{ __('Register') }}</a>
+                    @endif
                 </div>
+                @else
+                <div class="nav-item dropdown navbar-nav ml-auto dropdown-menu-lg-right">
+                    <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <img style="border-radius: 50%" src="{{ Auth::user()->photo_url }}" width="30" height="30" alt="user_logo">
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/user/{{ Auth::user()->username }}">
+                            <i class="fas fa-id-badge"></i>
+                            {{ Auth::user()->name }}
+                        </a>
+                        <a class="dropdown-item" style="color: red" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                                         <i class="fas fa-sign-out-alt"></i>
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </div>
+                @endguest
             </div>
         </nav>
 
         <main class="py-4">
             @yield('content')
         </main>
-        <br><br>
+        <br><br><br><br><br>
     </div>
     <!--Footer-->
-    <footer class="bg-light text-center" style="  position: fixed; left: 0; bottom: 0; width: 100%; color: #86caf8; text-align: center;">
-        <div class="text-center p-3" style="background-color: rgb(255, 255, 255, 0.1); border-top: rgb(0, 0, 0, .4);backdrop-filter: blur(10px);">
-          © برمجة وتطوير :
-          <a class="" style="color: #86caf8;" href="https://twitter.com/a7sa45">عبدالهادي ال بوسنينة</a>
+    <footer class="bg-light text-center h-20" style="position: fixed; left: 0; bottom: 0; width: 100%; color: #070e13; text-align: center; ">
+        <div class="text-center pb-5 pt-1" style="background-color: rgb(255, 255, 255, 0.1); border-top: rgb(0, 0, 0, .4);backdrop-filter: blur(10px);">
+            
+            <a class="btn btn-light px-3 {{ Request::is('shortcuts') ? 'text-primary' : '' }}" href="{{ url('/shortcuts') }}" style="flex-grow: 1;"><h5><h4><i class="fas fa-layer-group"></i></h4> <p class=""><b>الاختصارات</b></p></h5></a>
+            
+            <a class="btn btn-light px-3 {{ Request::is('search') ? 'text-primary' : '' }}" style="flex-grow: 1;" href="{{ url('/search') }}"><h5><h4><i class="fas fa-search"></i></h4> <p class=""><b>بحث</b></p></h5></a>
+            @auth
+                <a class="btn btn-light px-3 {{ Request::is('shortcuts/create') ? 'text-primary' : '' }}" style="flex-grow: 1;" href="{{ url('/shortcuts/create') }}"><h5><h4><i class="fas fa-plus-square"></i></h4> <p class=""><b>إضافة</b></p></h5></a>
+            @endauth
         </div>
     </footer>
     
