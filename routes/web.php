@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('/shortcuts', ShortcutController::class)->name('shortcuts');
+Route::resource('/shortcuts', ShortcutController::class)->name('*','shortcuts');
 Route::resource('/comments', CommentController::class);
 
 Route::get('/user/{username}', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');

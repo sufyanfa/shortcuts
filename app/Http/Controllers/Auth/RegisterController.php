@@ -67,6 +67,9 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'photo_url' => 'https://directory.weill.cornell.edu/api/v1/person/profile/jjfins.png?returnGenericOn404=true',
+            'url' => 'https://a7sa45.me',
+            'bio' => 'bio',
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
