@@ -14,7 +14,7 @@
                 <div class="col-md-6 mx-auto">
                     <div class="card rounded-1">
                         <div class="card-header">
-                            <h5 class="mb-0">انشاء</h5>
+                            <h5 class="mb-0"><i class="fas fa-edit"></i> تعديل</h5>
                         </div>
                         <div class="card-body">
                                 <form class="form" action="/shortcuts/{{ $shortcut->id }}" method="post">

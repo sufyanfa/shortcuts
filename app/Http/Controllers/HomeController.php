@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Shortcut;
 use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -37,8 +38,12 @@ class HomeController extends Controller
         {
             abort(404);
         }
+
         $shortcuts = Shortcut::all()->where('user_id', $username->id);
-        return view('profile', ['username' => $username, 'shortcuts' => $shortcuts]);
+        $likes = Shortcut::whereLikedBy($username->id)->with('likeCounter')->get();
+        //$comment = Shortcut::
+        $comments = Shortcut::all()->where('comments', $username->id);
+        return view('profile', ['username' => $username, 'shortcuts' => $shortcuts, 'likes' => $likes, 'comments' => $comments]);
     }
 
     public function edit(User $user)

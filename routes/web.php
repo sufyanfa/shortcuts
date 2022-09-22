@@ -28,6 +28,9 @@ Route::get('/user/{username}', [App\Http\Controllers\HomeController::class, 'pro
 Route::get('/user/{username}/edit', [App\Http\Controllers\HomeController::class, 'edit'])->name('edit_profile');
 Route::post('/user/edit', [App\Http\Controllers\HomeController::class, 'update'])->name('update_profile');
 
+Route::post('/like-short/{id}',[ShortcutController::class,'likeShort'])->name('like.short');
+Route::post('/unlike-short/{id}',[ShortcutController::class,'unlikeShort'])->name('unlike.short');
+
 Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

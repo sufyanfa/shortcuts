@@ -76,6 +76,10 @@
             @endauth
 
         </div>
+        <div style="align-items: center">
+            <span>{{$shortcuts->links("pagination::bootstrap-4")}}</span>
+        </div>
+        <br><br><br>
     </div>
 </section>
 

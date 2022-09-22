@@ -20,7 +20,7 @@ class ShortcutController extends Controller
      */
     public function index()
     {
-        $shortcuts = Shortcut::all();
+        $shortcuts = Shortcut::paginate(3);
         return view('shortcuts.index', ['shortcuts' => $shortcuts]);
     }
 
@@ -122,7 +122,7 @@ class ShortcutController extends Controller
             'color' => $data['color'],
         ]);
 
-        return redirect('/shortcuts');
+        return redirect('/shortcuts/'.$shortcut->id);
     }
 
     /**
@@ -140,5 +140,23 @@ class ShortcutController extends Controller
         $this->authorize('update', $shortcut);
         $shortcut->delete();
         return redirect('/shortcuts');
+    }
+
+    public function likeShort($id)
+    {
+        $short = Shortcut::find($id);
+        $short->like();
+        $short->save();
+
+        return redirect('/shortcuts/'.$id)->with('message','Post Like successfully!');
+    }
+
+    public function unlikeShort($id)
+    {
+        $short = Shortcut::find($id);
+        $short->unlike();
+        $short->save();
+        
+        return redirect('/shortcuts/'.$id)->with('message','Post Like undo successfully!');
     }
 }

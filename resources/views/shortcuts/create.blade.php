@@ -14,13 +14,13 @@
                 <div class="col-md-6 mx-auto">
                     <div class="card rounded-1">
                         <div class="card-header">
-                            <h5 class="mb-0">انشاء</h5>
+                            <h5 class="mb-0"><i class="fas fa-pencil-alt"></i> إنشاء</h5>
                         </div>
                         <div class="card-body">
                                 <form class="form" action="/shortcuts" method="post">
                                     @csrf
                                     <div class="form-group">
-                                        <label> {{__('Title')}} : </label>
+                                        <label> العنوان : </label>
                                         <input class="form-control @error('title') is-invalid @enderror" type="name" value="{{ old('title') }}" name="title">
                                             @error('title')
                                                 <span class="invalid-feedback" role="alert">
@@ -30,7 +30,7 @@
                                     </div>
                                     <br>
                                     <div class="form-group">
-                                        <label> {{__('URL')}} : </label>
+                                        <label> الرابط : </label>
                                         <input class="form-control @error('title') is-invalid @enderror" type="name" value="{{ old('url') }}" name="url">
                                         @error('url')
                                                 <span class="invalid-feedback" role="alert">
@@ -48,7 +48,7 @@
 
 
                                     <div class="form-group">
-                                        <label for="icon"> {{__('Icon')}} : </label>
+                                        <label for="icon"> الإقونة : </label>
                                         <select class="form-control" id="icon" name="icon">
                                         <option value="fas fa-align-left">&#xf036; fa-align-left</option>
                                         <option value="fas fa-align-right">&#xf038; fa-align-right</option>
@@ -493,7 +493,7 @@
                                     </div>
                                 -->
                                 <div class="form-group" style="margin-top: 20px;">
-                                    <label> {{__('Color')}} : </label>
+                                    <label> اللون : </label>
                                     <div class="select-colors" style="text-align: center">
                                         <input type="radio" id="f3666c" name="color" value="#f3666c" data-color="#f3666c"/>
                                         <label class="label-color" for="f3666c" /></label>
@@ -533,7 +533,7 @@
 
 
                                     <div class="form-group">
-                                        <label> {{__('Describe')}} : </label>
+                                        <label> الوصف : </label>
                                         <textarea class="form-control" name="body"></textarea>
                                     </div>
                                     <input class="btn btn-success btn-md float-right" type="submit" value="إضافة !">
