@@ -29,7 +29,7 @@
                       <div class="h-100 p-5 bg-light border rounded-3">
                         <h2> تحتاج مساعدة ؟!</h2>
                         <p>نعلم ان قد تواجهك بعض الصعوبات في استعمال التطبيق , لذلك وفرنا لك شرح مفصل للتطبيق </p>
-                        <button class="btn btn-outline-secondary" type="button"><i class="fas fa-eye"></i> عرض</button>
+                        <button class="btn btn-outline-secondary" onclick="window.location.href='https://www.youtube.com/watch?v=tuHhThot6aY';" type="button"><i class="fas fa-eye"></i> عرض</button>
                       </div>
                     </div>
                   </div>

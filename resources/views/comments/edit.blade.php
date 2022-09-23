@@ -4,8 +4,8 @@
 <div class="container">
     <div class="jumbotron jumbotron-fluid" style="text-align: center;">
         <div class="container">
-          <h1 class="display-4">{{__('Edit Comment')}}</h1>
-          <p class="lead text-info">{{__('Chening your Comment')}}</p>
+          <h1 class="display-4">تعديل التعليق</h1>
+          <p class="lead text-info">عدل تعليقك</p>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -37,6 +37,7 @@
                         @method('DELETE')
                         <button type="submit" class="btn btn-outline-danger" style="width: 100%;"> حذف <i class="fas fa-trash"></i></button>
                     </form>
+                    <a class="btn btn-outline-dark" style="width: 100%; margin-top: 10px;" href="/shortcuts/{{ $comment->shortcut_id }}">إلغاء</a>
                 </div>
             </div>
         </div>
