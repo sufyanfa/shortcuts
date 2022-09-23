@@ -70,7 +70,7 @@ class RegisterController extends Controller
         $userURL = $twitterURL .= $username;
         return User::create([
             'name' => $data['name'],
-            'photo_url' => 'https://directory.weill.cornell.edu/api/v1/person/profile/jjfins.png?returnGenericOn404=true',
+            'photo_url' => 'https://t4.ftcdn.net/jpg/03/20/77/17/360_F_320771732_mxVhb6K1K51cM9x5unAsLWwahDCj7s0j.jpg',
             'url' => $userURL,
             'bio' => 'لايوجد نبذة تعريفية',
             'username' => $data['username'],

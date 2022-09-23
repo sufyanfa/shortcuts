@@ -20,7 +20,7 @@ class ShortcutController extends Controller
      */
     public function index()
     {
-        $shortcuts = Shortcut::paginate(3);
+        $shortcuts = Shortcut::paginate(20);
         return view('shortcuts.index', ['shortcuts' => $shortcuts]);
     }
 

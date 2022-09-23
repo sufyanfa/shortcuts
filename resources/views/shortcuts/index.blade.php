@@ -31,8 +31,8 @@
                             </div>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent"><!--p-4-->
-                            <a href="/shortcuts/{{ $short->id }}"><h5 class="fw-bolder text-white"> {{ $short->title }} </h5></a>
-                            <p class="card-text text-white" style="font-size: small;">
+                            <a href="/shortcuts/{{ $short->id }}"><h5 class="fw-bolder text-white text-truncate"> {{ $short->title }} </h5></a>
+                            <p class="card-text text-white text-truncate" style="font-size: small;">
                                 <span class="badge badge-light"><svg class="bi bi-person-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
                                 </svg> {{ $short->user->name }} </span>
