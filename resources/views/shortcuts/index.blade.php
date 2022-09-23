@@ -41,22 +41,20 @@
                     </div>
                 </div>
             @empty
-                @auth
-                    <div class="col mb-5">
-                        <div class="card h-100 bg-light" style="border-radius: 10px; background-color: ">
-                            <div class="card-body">
-                                <div class="float-left">
-                                    <h1 class="card-title text-info"><i class="far fa-plus-square"></i></h1>
-                                </div>
-                                <div class="float-right">
-                                </div>
+                <div class="col mb-5">
+                    <div class="card h-100 bg-warning" style="border-radius: 10px; background-color: ">
+                        <div class="card-body">
+                            <div class="float-left">
+                                <h1 class="card-title text-info"><i class="fas fa-italic"></i></h1>
                             </div>
-                            <div class="card-footer pt-0 border-top-0 bg-transparent">
-                                <h4 class="card-title"><a href="/shortcuts/create" class="uk-button uk-button-default btt text-info" uk-toggle="">اضافة اختصار</a></h4>
+                            <div class="float-right">
                             </div>
                         </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <h4 class="card-title"> لا توجد اختصارات</a></h4>
+                        </div>
                     </div>
-                @endauth
+                </div>
             @endforelse
             @auth
                     <div class="col mb-5">
@@ -82,5 +80,6 @@
         <br><br><br>
     </div>
 </section>
-
+@include('includes._footer')
 @endsection
+

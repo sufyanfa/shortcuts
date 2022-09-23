@@ -76,7 +76,7 @@ class HomeController extends Controller
         ]);
         $username = Auth::user()->username;
         //$user->save();
-        return redirect('/user/'.$username);
+        return redirect('/user/'.$username)->with('success', 'تم تحديث ملفك الشخصي !');
     }
 
     public function search(Request $request)

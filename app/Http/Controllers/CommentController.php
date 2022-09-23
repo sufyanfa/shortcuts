@@ -52,7 +52,7 @@ class CommentController extends Controller
             ]
         );
 
-        return back();
+        return back()->with('success', 'تم إضافة التعليق !');
     }
 
     /**
@@ -99,7 +99,7 @@ class CommentController extends Controller
             'comment' => $data['comment'],
         ]);
 
-        return redirect('/shortcuts');
+        return redirect('/shortcuts/'.$comment->shortcut_id)->with('success', 'تم تعديل التعليق !');
     }
 
     /**
@@ -116,6 +116,6 @@ class CommentController extends Controller
         }
         //$this->authorize('update', $comment);
         $comment->delete();
-        return redirect('/shortcuts');
+        return redirect('/shortcuts/'.$comment->shortcut_id)->with('warning', 'تم حذف التعليق !');
     }
 }

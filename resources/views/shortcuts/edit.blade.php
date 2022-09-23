@@ -539,6 +539,7 @@
                                     </div>
                                     <input class="btn btn-success btn-md float-right" type="submit" value="تحديث !">
                                 </form>
+                                <a class="btn btn-outline-dark" href="/">إلغاء</a>
                             {{--
                             <a href="/login">يجب عليك تسجيل الدخول لاضافة اختصار</a>
                             --}}

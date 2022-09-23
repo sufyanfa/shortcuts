@@ -38,4 +38,5 @@
                     &copy; 2021
                   </footer>
                 </div>
+@include('includes._footer')
 @endsection

@@ -58,7 +58,7 @@ class ShortcutController extends Controller
             'color' => $data['color'],
         ]);
 
-        return redirect('/shortcuts');
+        return redirect('/shortcuts')->with('success', 'تم انشاء الاختصار بنجاح !');
     }
 
     /**
@@ -148,7 +148,7 @@ class ShortcutController extends Controller
         $short->like();
         $short->save();
 
-        return redirect('/shortcuts/'.$id)->with('message','Post Like successfully!');
+        return redirect('/shortcuts/'.$id)->with('success', 'تم الاعجاب !');
     }
 
     public function unlikeShort($id)
@@ -157,6 +157,6 @@ class ShortcutController extends Controller
         $short->unlike();
         $short->save();
         
-        return redirect('/shortcuts/'.$id)->with('message','Post Like undo successfully!');
+        return redirect('/shortcuts/'.$id)->with('warning', 'تم الغاء الاعجاب !');
     }
 }

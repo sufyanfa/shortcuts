@@ -74,6 +74,14 @@
               <a type="submit" class="btn text-dark btn-lg" style="border:0"><i class="fab fa-font-awesome-flag"></i></a>
             </div>
           </div>
+          @else
+          <div style="margin-top: 10px; float: left;">
+            <button
+              onclick="location.href='/login';"
+              class="btn text-dark btn-lg">
+              <i class="far fa-heart"></i> {{ $shortcut->likeCount }}
+            </button>
+          </div>
           @endauth
         </div>
         
@@ -154,4 +162,5 @@
 
   <br><br><br>
 </div>
+@include('includes._footer')
 @endsection
