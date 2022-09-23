@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="jumbotron jumbotron-fluid" style="text-align: center;">
+    <div class="jumbotron jumbotron-fluid" style="text-align: center; border-radius: 1%;">
         <div class="container">
         <h1 class="display-4">تعديل احتصار</h1>
         <p class="lead text-info">تحديث الاختصار من اجل الاستمرار !</p>

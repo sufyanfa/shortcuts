@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="container">
-    <div class="jumbotron jumbotron-fluid" style="text-align: center;">
+    <div class="jumbotron jumbotron-fluid" style="text-align: center; border-radius: 1%;">
         <div class="container">
-          <h1 class="display-4">{{__('Edit Profile')}}</h1>
-          <p class="lead text-info">{{__('Chening your profile')}}</p>
+          <h1 class="display-4">تعديل الملف الشخصي</h1>
+          <p class="lead text-info">حدث معلوماتك</p>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -92,4 +92,5 @@
         </div>
     </div>
 </div>
+<br><br>
 @endsection

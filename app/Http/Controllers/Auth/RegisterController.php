@@ -72,7 +72,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'photo_url' => 'https://directory.weill.cornell.edu/api/v1/person/profile/jjfins.png?returnGenericOn404=true',
             'url' => $userURL,
-            'bio' => 'bio',
+            'bio' => 'لايوجد نبذة تعريفية',
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),

@@ -91,6 +91,7 @@
               <div class="media-body" style="margin-right: 10px">
               <div class="float-right">
                                 <h3 class="card-title ">
+                                  @auth
                                     @if(Auth::user()->id == $comment->user->id)
                                       <a class="" style="color: #212529" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-ellipsis-v"></i>
@@ -102,6 +103,7 @@
                                         </form>
                                       </div>
                                     @endif
+                                  @endauth
                                 </h3>
                     </div>
                     <a style="color: #212529" href="/user/{{ $comment->user->username }}"><h6 class="mt-1 mb-0">{{ $comment->user->name }}</h6></a> <span class="text-muted">{{ $comment->user->username }}@</span>

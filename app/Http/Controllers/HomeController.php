@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('welcome');
     }
 
     public function profile($username)
@@ -42,7 +42,7 @@ class HomeController extends Controller
         $shortcuts = Shortcut::all()->where('user_id', $username->id);
         $likes = Shortcut::whereLikedBy($username->id)->with('likeCounter')->get();
         //$comment = Shortcut::
-        $comments = Shortcut::all()->where('comments', $username->id);
+        $comments = Comment::all()->where('user_id', $username->id);
         return view('profile', ['username' => $username, 'shortcuts' => $shortcuts, 'likes' => $likes, 'comments' => $comments]);
     }
 

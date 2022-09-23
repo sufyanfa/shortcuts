@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="jumbotron jumbotron-fluid" style="text-align: center;">
+    <div class="jumbotron jumbotron-fluid" style="text-align: center; border-radius: 1%;">
         <div class="container">
         <h1 class="display-4">إضافة اختصار</h1>
         <p class="lead text-info">انشر ابداعك للعالم !</p>
@@ -20,7 +20,7 @@
                                 <form class="form" action="/shortcuts" method="post">
                                     @csrf
                                     <div class="form-group">
-                                        <label> العنوان : </label>
+                                        <label> العنوان*  </label>
                                         <input class="form-control @error('title') is-invalid @enderror" type="name" value="{{ old('title') }}" name="title">
                                             @error('title')
                                                 <span class="invalid-feedback" role="alert">
@@ -30,7 +30,7 @@
                                     </div>
                                     <br>
                                     <div class="form-group">
-                                        <label> الرابط : </label>
+                                        <label> الرابط* </label>
                                         <input class="form-control @error('title') is-invalid @enderror" type="name" value="{{ old('url') }}" name="url">
                                         @error('url')
                                                 <span class="invalid-feedback" role="alert">
@@ -48,7 +48,7 @@
 
 
                                     <div class="form-group">
-                                        <label for="icon"> الإقونة : </label>
+                                        <label for="icon"> الإقونة* </label>
                                         <select class="form-control" id="icon" name="icon">
                                         <option value="fas fa-align-left">&#xf036; fa-align-left</option>
                                         <option value="fas fa-align-right">&#xf038; fa-align-right</option>
@@ -493,7 +493,7 @@
                                     </div>
                                 -->
                                 <div class="form-group" style="margin-top: 20px;">
-                                    <label> اللون : </label>
+                                    <label> اللون* </label>
                                     <div class="select-colors" style="text-align: center">
                                         <input type="radio" id="f3666c" name="color" value="#f3666c" data-color="#f3666c"/>
                                         <label class="label-color" for="f3666c" /></label>
@@ -533,7 +533,7 @@
 
 
                                     <div class="form-group">
-                                        <label> الوصف : </label>
+                                        <label> الوصف* </label>
                                         <textarea class="form-control" name="body"></textarea>
                                     </div>
                                     <input class="btn btn-success btn-md float-right" type="submit" value="إضافة !">

@@ -210,7 +210,7 @@
             
             <a class="btn btn-light px-3 {{ Request::is('search') ? 'text-primary' : '' }}" style="flex-grow: 1; width: 100px;" href="{{ url('/search') }}"><h5><h4><i class="fas fa-search"></i></h4> <p class=""><b>بحث</b></p></h5></a>
             @auth
-                <a class="btn btn-light px-3 {{ Request::is('shortcuts/create') ? 'text-primary' : '' }}" style="flex-grow: 1; width: 100px;" href="{{ url('/shortcuts/create') }}"><h5><h4><i class="fas fa-plus-square"></i></h4> <p class=""><b>إضافة</b></p></h5></a>
+                <a class="btn btn-light px-3 {{ Request::is('shortcuts/create') ? 'text-primary' : '' }}" style="flex-grow: 1; width: 100px;" href="{{ url('/shortcuts/create') }}"><h5><h4><i class="fas fa-plus"></i></h4> <p class=""><b>إضافة</b></p></h5></a>
             @endauth
         </div>
     </footer>

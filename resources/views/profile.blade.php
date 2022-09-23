@@ -48,6 +48,9 @@
         <li class="nav-item" role="presentation">
           <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">الاعجابات</a>
         </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="comment-tab" data-toggle="tab" href="#comment" role="tab" aria-controls="comment" aria-selected="false">التعليقات والردود</a>
+          </li>
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -163,6 +166,47 @@
                 </div>
             @empty
             @endforelse
+            </div>
+        </div>
+        <div class="tab-pane fade" id="comment" role="tabpanel" aria-labelledby="comment-tab">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center pt-3">
+            @forelse ($comments as $comment)
+            <div class="col mb-5">
+                <div class="card h-100" style="border-radius: 10px; background-color: {{ $comment->shortcut->color }}">
+                    <div class="card-body "><!--p-4-->
+                        <div class="float-left">
+                            <h1 class="card-title text-white"><i class="{{ $comment->shortcut->icon }}"></i><a href="#modal-center" class="uk-button uk-button-default btt text-white" uk-toggle=""></a></h1>
+                        </div>
+                        <div class="float-right">
+                            <h3 class="card-title text-white">
+                                <a class="text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#one"><i class="fas fa-share-square"></i> {{__('Share')}}</a>
+                                    
+                                    @can('update', $comment->shortcut)
+                                        <form class="dropdown-item" action="/shortcuts/{{ $comment->shortcut->id }}/edit" method="get" style="margin-top: 10px; float: right;">
+                                            @csrf
+                                            <button class="dropdown-item" type="submit" class="btn btn-outline-dark" style="width: 100px;"> {{__('Edit')}} <i class="far fa-edit"></i></button>
+                                        </form>
+                                    @endcan
+                                    
+                                </div>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="card-footer pt-0 border-top-0 bg-transparent"><!--p-4-->
+                        <a href="/shortcuts/{{ $comment->shortcut->id }}"><h5 class="fw-bolder text-white"> {{ $comment->shortcut->title }} </h5></a>
+                    </div>
+                    <div class="card-footer text-white" style=" color: #fff">
+                        <a style="color: #fff" href="/shortcuts/{{ $comment->shortcut->id }}"><p><b>{{ $comment->comment }}</b></p></a>
+                  </div>
+                </div>
+            </div>
+            @empty
+            @endforelse
+            </div>
             </div>
         </div>
       </div>
